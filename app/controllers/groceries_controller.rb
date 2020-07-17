@@ -18,7 +18,7 @@ class GroceriesController < ApplicationController
   def destroy
     grocery = Grocery.find(params[:id])
     grocery.destroy
-    head :no_content, status :ok
+    head :no_content, status: :ok
   end
 
   private
