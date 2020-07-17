@@ -1,3 +1,3 @@
 # README
  
- Grocerise: my grocery list
+ Grocerlist: my grocery list
