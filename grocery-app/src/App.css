@@ -1,43 +1,131 @@
-input.groceryCheckbox:checked + label.groceryLabel {
-  text-decoration: line-through;
+@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&family=Nanum+Pen+Script&display=swap');
+
+:root {
+  --brightheart: #ad4dff;
+  --sharebear: #e4aefd;
+  --funshine: #fffba3;
+  --friendbear: #f9bb88;
+  --lovealot: #f68fb9;
+  --wishbear: #52e3e3;
+  --grumpybear: #63838f;
 }
 
+body {
+  background-color: var(--funshine);
+  background-image: url('/bg.png');
+}
+body, li, input {
+  font-family: 'Nanum Pen Script', sans-serif;
+  font-size: 2rem;
+}
 
-.App {
+h1, .inputContainer {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  color: var(--brightheart);
+  font-family: 'Leckerli One', sans-serif;
+  font-size: 4rem;
+  text-shadow: 0.3rem 0.3rem 0 var(--sharebear);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.numGroceries {
+  font-size: 3rem;
+  font-weight: 600;
+  text-shadow: 0.2rem 0.2rem 0 var(--wishbear);
+  margin-bottom: 1.5rem;
+  color: var(--grumpybear);
+  text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+input {
+  border: 2px solid var(--lovealot);
+  background-color: var(--friendbear);
+  text-align: center;
+  width: 50%;
+}
+
+.listWrapper {
+  text-align: left;
+  margin: auto;
+  width: 50%;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+li > * {
+  flex: auto auto;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+li span:first-child {
+  margin-left: 0;
+}
+
+li span:last-child {
+  text-align: right;
+}
+
+input.groceryCheckbox {
+  -webkit-appearance: none;
+  background-color: var(--sharebear);
+  width: 2rem;
+  height: 2rem;
+  border: 1px dotted var(--brightheart);
+  margin: 0;
+  padding: 0;
+}
+
+input.groceryCheckbox:checked {
+  background-color: var(--lovealot);
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+input.groceryCheckbox:checked:after {
+  content: "\2713";
+  background-color: var(--brightheart);
+  color: var(--funshine);
+  font-size: 2.4rem;
+  position: relative;
+  top: -0.3rem;
+  margin: 0;
+  padding: 0;
+}
+
+input.groceryCheckbox:checked + label.groceryLabel {
+  text-decoration: line-through;
+  color: var(--lovealot)
+}
+
+label.groceryLabel {
+  overflow: auto;
+}
+
+button.groceryX {
+  cursor: pointer;
+  border: 3px double var(--lovealot);
+  border-radius: 50%;
+  width: 2rem;
+  font-size: 1.4rem;
+  background-color: var(--brightheart); 
+  color: var(--funshine);
+}
+
+button.groceryX:hover {
+  background-color: var(--lovealot);
+  color: black;
 }

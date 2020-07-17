@@ -7,6 +7,7 @@ class GroceriesContainer extends Component {
     super(props)
     this.state = {
       groceries: [],
+      count: 0,
       inputValue: ''
     }
   }
@@ -15,6 +16,9 @@ class GroceriesContainer extends Component {
     axios.get('/api/v1/groceries')
       .then(response => {
         this.setState({groceries: response.data})
+        this.setState({
+          count: response.data.length
+        })
       })
       .catch(error => console.log(error))
   }
@@ -28,7 +32,8 @@ class GroceriesContainer extends Component {
           })
           this.setState({
             groceries: groceries,
-            inputValue: ''
+            inputValue: '',
+            count: groceries.length
           })
         })
         .catch(error => console.log(error))
@@ -43,7 +48,8 @@ class GroceriesContainer extends Component {
           [groceryIndex]: {$set: response.data}
         })
         this.setState({
-          groceries: groceries
+          groceries: groceries,
+          count: groceries.length
         })
       })
       .catch(error => console.log(error))
@@ -57,7 +63,8 @@ class GroceriesContainer extends Component {
           $splice: [[groceryIndex, 1]]
         })
         this.setState({
-          groceries: groceries
+          groceries: groceries,
+          count: groceries.length
         })
       })
       .catch(error => console.log(error))
@@ -74,6 +81,11 @@ class GroceriesContainer extends Component {
   render() {
     return(
       <div>
+        <div className="numGroceries">
+          {this.state.count === 1 ? this.state.count + ' grocery!' :
+           this.state.count === 0 ? 'No groceries!' :
+           this.state.count + ' groceries!'}
+        </div>
         <div className="inputContainer">
           <input className="groceryInput" type="text"
             placeholder="Add grocery" maxLength="50"
@@ -89,8 +101,8 @@ class GroceriesContainer extends Component {
                    checked={grocery.done}
                    onChange={(e) => this.updateGrocery(e, grocery.id)} />
                   <label className="groceryLabel">{grocery.title}</label>
-                  <span className="deleteGroceryBtn"
-                   onClick={(e) => this.deleteGrocery(grocery.id)}>x</span>
+                  <button className="groceryX"
+                 onClick={(e) => this.deleteGrocery(grocery.id)}>x</button>
                 </li>
               )
             })}
