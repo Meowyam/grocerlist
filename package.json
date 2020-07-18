@@ -18,9 +18,9 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "build": "cd grocery-app && yarn build",
+    "build": "cd grocery-app && npm install && npm run build && cd ..",
     "deploy": "cp -a grocery-app/build/. public/",
-    "postinstall": "yarn build && yarn deploy"
+    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
   },
   "eslintConfig": {
     "extends": "react-app"
