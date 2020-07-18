@@ -2,6 +2,7 @@
   "name": "grocery-app",
   "version": "0.1.0",
   "engines": {
+    "yarn": "1.22.x",
     "node": "14.x"
   },
   "private": true,
@@ -17,10 +18,9 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "cd grocery-app && react-scripts start",
-    "build": "cd grocery-app && react-scripts build",
-    "test": "cd grocery-app && react-scripts test",
-    "eject": "cd grocery-app && react-scripts eject"
+    "build": "cd grocery-app && yarn build",
+    "deploy": "cp -a grocery-app/build/. public/",
+    "postinstall": "yarn build && yarn deploy"
   },
   "eslintConfig": {
     "extends": "react-app"
