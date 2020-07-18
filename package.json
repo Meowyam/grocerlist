@@ -17,10 +17,10 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "cd grocery-app && react-scripts start",
+    "build": "cd grocery-app && react-scripts build",
+    "test": "cd grocery-app && react-scripts test",
+    "eject": "cd grocery-app && react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
