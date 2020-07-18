@@ -20,7 +20,7 @@
   "scripts": {
     "build": "cd grocery-app && npm install && npm run build && cd ..",
     "deploy": "cp -a grocery-app/build/. public/",
-    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
+    "heroku-postbuild": "npm run build && npm run deploy && echo 'Client built!'"
   },
   "eslintConfig": {
     "extends": "react-app"
